@@ -9,9 +9,6 @@ from config import d_b
 metadata = MetaData()
 Base = declarative_base()
 
-#engine = create_engine(d_b) # не понимаю откуда и что это
-#Base.metadata.create_all(engine) # не понимаю откуда и что это
-
 class Viewed(Base):
     __tablename__ = 'viewed'
     profile_id = sq.Column(sq.Integer, primary_key=True)
