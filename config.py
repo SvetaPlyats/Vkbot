@@ -1,4 +1,3 @@
-group_token = 'vk1.a.ykdpaFb1-Q3YoWjF24JSlKftqPj0VPoT_FeGEy1LT7lf7kODZ6pKBoFcW5nbMB3lIPsvrh68qWThSc_qxoZI2HBuHtRoYGemjcTiGsaBfea5xxGGE_PXnG_CSYK0C6V3Rf23RAQqjyzld3Hhr_AJbyfpMoAMbklrM1eoy2-_0kJFLxxEgJpmu2ePXkyovj2-e1GW_qLamWFYy8uLRaMxkg'
-acces_token = 'vk1.a.56OmDksD_elCYjzZKV2HKeanzcsPACjVtNjuS1JYlr0z-kPo_SGwSAMAO0eOShnM_nCxRq-RgE3nC3MTXgGb36xKSxKLX2g7VuGzBzYiyLYEbfBPOhpokqzZtxcUp_pWUjk6tmjKlWdtvq2OZBGK77Dy-8yCSU8F2C--Ut9h9pZcq_4F0VjglfbgsXDc5FMUsFXQEhU2HuQEFwMKupoC5g'
-d_b = 'postgresql://postgres:password@localhost:5432/VKT'
-#postgres:password user:postgres connect("host=localhost dbname=VKT user=postgres password=password")
+group_token = 
+acces_token = 
+d_b = 
