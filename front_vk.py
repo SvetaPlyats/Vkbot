@@ -1,5 +1,3 @@
-#from random import randrange
-
 import vk_api
 from vk_api.longpoll import VkLongPoll, VkEventType
 from vk_api.utils import get_random_id
@@ -41,15 +39,30 @@ class BotInterface():
                     # запрос отсутствующего
                     if self.params['year'] is None:
                         self.message_send(event.user_id, f'Укажите возраст')
-                        age = (self.event_info())
+                        for event in longpjll.listen():
+                            if event.type == VkEventType.MESSAGE_NEW and event.to_me:
+                                self.params['year'] = event.text
+                                break
 
                     if self.params['city'] is None:
                         self.message_send(event.user_id, f'Укажите город')
-                        self.params['city'] = (self.event_info())
+                        for event in longpjll.listen():
+                            if event.type == VkEventType.MESSAGE_NEW and event.to_me:
+                                self.params['city'] = event.text
+                                break
 
                 elif event.text.lower() == 'поиск':
                         # логика для поиска анкет
                     self.message_send(event.user_id, 'Идёт поиск')
+                    
+                    # проверка и добавление в БД
+                    for worksheet in self.worksheets:
+                        if check_user(engine, event.user_id, worksheet["id"]) == True:
+                            break
+                        else: add_user(engine, event.user_id, worksheet["id"])
+
+
+                    
                     if self.worksheets:
                         worksheet = self.worksheets.pop()
                         photos = self.vk_tools.get_photos(worksheet['id'])
@@ -68,9 +81,6 @@ class BotInterface():
                     self.message_send(event.user_id,
                                         f'имя: {worksheet["name"]} ссылка: vk.com/{worksheet["id"]}',
                                         attachment=photo_string)
-
-                    if not check_user(engine, event.user_id, worksheet["id"]):
-                        add_user(engine, event.user_id, worksheet["id"])
 
 
                 elif event.text.lower() == 'пока':
