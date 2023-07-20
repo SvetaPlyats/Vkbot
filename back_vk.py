@@ -72,17 +72,8 @@ class VkTools():
                       ]
 
         #Сортировка по лайкам, - лишние элементы
-        def sort_likes(photos):
-            result = []
-            for element in photos:
-                if element != ['нет фото.'] and photos != 'нет доступа к фото':
-                    result.append(element)
-            return sorted(result)
-        return result [:3]
-
-        # res.sort(key=lambda x: x['likes'] + x['comments'] * 10, reverse=True)
-        #  result.sort(key=lambda x: x['likes']+x['comments'], reverse=True)
-        # return res
+        result.sort(key=lambda x: x['likes'] + x['comments'] * 10, reverse=True)
+        return result[:3]
 
 
 if __name__ == '__main__':
