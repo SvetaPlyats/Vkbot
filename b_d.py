@@ -14,8 +14,6 @@ class Viewed(Base):
     profile_id = sq.Column(sq.Integer, primary_key=True)
     worksheet_id = sq.Column(sq.Integer, primary_key=True)
 
-# engine = create_engine(d_b)
-# Base.metadata.create_all(engine)
 
 def add_user(engine, profile_id, worksheet_id):
     with Session(engine) as session:
